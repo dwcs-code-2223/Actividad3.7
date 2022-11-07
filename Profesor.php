@@ -21,7 +21,7 @@ final class Profesor extends Persoa {
     private $NIF;
     private $bailes = [];
 
-    public function __construct($nome, $apelidos, $mobil, $NIF) {
+    public function __construct(string $nome, string $apelidos, string $mobil, string $NIF) {
         parent::__construct($nome, $apelidos, $mobil);
         $this->NIF = $NIF;
     }

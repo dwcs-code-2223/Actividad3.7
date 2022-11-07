@@ -16,24 +16,24 @@ class Baile {
    private $nome;
    private $idadeMinima;
    
-   public function __construct($nome, $idadeMinima= self::IDADE_MINIMA_DEFECTO) {
+   public function __construct(string $nome, int $idadeMinima= self::IDADE_MINIMA_DEFECTO) {
        $this->nome = $nome;
        $this->idadeMinima = $idadeMinima;
    }
    
-   public function getNome() {
+   public function getNome():string {
        return $this->nome;
    }
 
-   public function getIdadeMinima() {
+   public function getIdadeMinima(): int{
        return $this->idadeMinima;
    }
 
-   public function setNome($nome): void {
+   public function setNome(string $nome): void {
        $this->nome = $nome;
    }
 
-   public function setIdadeMinima($idadeMinima): void {
+   public function setIdadeMinima(int $idadeMinima): void {
        $this->idadeMinima = $idadeMinima;
    }
 

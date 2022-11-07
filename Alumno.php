@@ -20,7 +20,7 @@ final class Alumno extends Persoa {
 
     private $numClases;
 
-    public function __construct($nome, $apelidos, $mobil,
+    public function __construct(string $nome, string $apelidos, string $mobil,
             $numClases=0) {
         parent::__construct($nome, $apelidos, $mobil);
         $this->numClases = $numClases;
