@@ -20,11 +20,16 @@ final class Alumno extends Persoa {
 
     private $numClases;
 
-    public function __construct(string $nome, string $apelidos, string $mobil,
-            $numClases=0) {
+    public function __construct(string $nome, string $apelidos,
+            string $mobil,
+            $numClases = 0) {
         parent::__construct($nome, $apelidos, $mobil);
         $this->numClases = $numClases;
     }
+
+    //Otra opción sería no añadir un constructor en esta clase
+    //y cuando se llame a new Alumno($nome, $apelidos, $mobil) se llamaría
+    //implícitamente al constructor de Persona
 
     public function setNumClases($numClases): void {
         $this->numClases = $numClases;
@@ -33,7 +38,7 @@ final class Alumno extends Persoa {
     public function aPagar(): string {
         $importe = 0;
 
-        if( ($this->numClases != null) && ($this->numClases > 0) ){
+        if (($this->numClases != null) && ($this->numClases > 0)) {
 
             switch ($this->numClases) {
                 case 1:
@@ -42,7 +47,7 @@ final class Alumno extends Persoa {
                 case 2:
                     $importe = self::CUOTA_DOS_CLASES;
                     break;
-                case 3:
+                default :
                     //asumimos números positivos
                     $importe = self::CUOTA_TRES_O_MAS_CLASES;
                     break;
