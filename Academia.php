@@ -10,8 +10,6 @@
  *
  * @author maria
  */
-require_once 'Profesor.php';
-require_once 'Alumno.php';
 
 class Academia {
 

@@ -10,10 +10,7 @@
  *
  * @author maria
  */
-require_once "Persoa.php";
 
-require_once "Baile.php";
-require_once "util.php";
 
 final class Profesor extends Persoa {
 

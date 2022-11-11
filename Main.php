@@ -4,8 +4,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
  */
+require_once "Persoa.php";
+require_once 'Profesor.php';
+require_once 'Alumno.php';
 require_once 'Academia.php';
 require_once 'Baile.php';
+require_once "util.php";
+
 
 
 $academia = new Academia();
