@@ -15,11 +15,14 @@ class Persoa {
    protected $apelidos;
    protected $mobil;
    
+
+   
    
    public function __construct(string $nome, string $apelidos, string $mobil) {
        $this->nome = $nome;
        $this->apelidos = $apelidos;
        $this->mobil = $mobil;
+      
    }
 
    
@@ -50,8 +53,18 @@ class Persoa {
    public function verInformacion(){
        $cadea = implode (" ", 
                [$this->nome,  $this->apelidos, 
-                   "(".$this->mobil.")<br/>"]);
+                   "(".$this->mobil.")"]);
        echo $cadea;
    }
+   
+//   public function getDataNacemento() {
+//       return $this->dataNacemento;
+//   }
+//
+//   public function setDataNacemento($dataNacemento): void {
+//       $this->dataNacemento = $dataNacemento;
+//   }
+
+
 
 }

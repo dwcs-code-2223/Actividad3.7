@@ -4,17 +4,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
  */
+
+require_once "exceptions/NotProfesorException.php";
+require_once "IComparar.php";
 require_once "Persoa.php";
 require_once 'Profesor.php';
+
 require_once 'Alumno.php';
 require_once 'Academia.php';
 require_once 'Baile.php';
 require_once "util.php";
 
+set_exception_handler(function (Throwable $t) {
+    echo "Ha ocurrido un error o exception: " . get_class($t) . " Mensaje: " . $t->getMessage();
+});
+
 
 
 $academia = new Academia();
-$profe1 = new Profesor("Silvia", "López López", "666777888", "12345678D");
+$profe1 = new Profesor("Silvia", "López López", "666777888", "12345678D", 32);
+$profe2 = new Profesor("Aimar", "Aira Alvar", "666111222", "12345678A", 23);
 
 $salsa = new Baile("Salsa");
 $bachata = new Baile("Bachata", 12);
@@ -59,10 +68,19 @@ mostrarImporte($alumno2);
 $profe1->eliminar(new Baile("AFRO"));
 $profe1->mostrarBailes();
 
-
-
-
 function mostrarImporte(Alumno $alumno) {
     $cuotaA1 = $alumno->aPagar();
     echo "Alumno/a: " . $alumno->getNome() . " debe pagar $cuotaA1 €<br/>";
 }
+
+echo "Comparando " . $profe1->getIdade() . " y " . $profe2->getIdade() . "... resultado: " . $profe1->comparar($profe2) . "<br/>";
+echo "Comparando " . $profe2->getIdade() . " y " . $profe1->getIdade() . "... resultado: " . $profe1->comparar($profe2) . "<br/>";
+echo "Comparando " . $profe1->getIdade() . " y baile \$salsa... resultado: <br/>";
+//  try{
+
+$profe1->comparar($salsa);
+
+//} catch(\exceptions\NotProfesorException $npe){
+//    echo "Se ha producido una excepción:  ". $npe->getMessage() . "<br/>".  $npe->getTraceAsString() . " <br/>";
+//}
+
