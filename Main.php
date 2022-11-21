@@ -15,9 +15,10 @@ require_once 'Academia.php';
 require_once 'Baile.php';
 require_once "util.php";
 
-set_exception_handler(function (Throwable $t) {
-    echo "Ha ocurrido un error o exception: " . get_class($t) . " Mensaje: " . $t->getMessage();
-});
+//Descomentar para probar el manejo global de la excepción
+//set_exception_handler(function (Throwable $t) {
+//    echo "Ha ocurrido un error o exception: " . get_class($t) . " Mensaje: " . $t->getMessage();
+//});
 
 
 
@@ -73,14 +74,13 @@ function mostrarImporte(Alumno $alumno) {
     echo "Alumno/a: " . $alumno->getNome() . " debe pagar $cuotaA1 €<br/>";
 }
 
-echo "Comparando " . $profe1->getIdade() . " y " . $profe2->getIdade() . "... resultado: " . $profe1->comparar($profe2) . "<br/>";
-echo "Comparando " . $profe2->getIdade() . " y " . $profe1->getIdade() . "... resultado: " . $profe1->comparar($profe2) . "<br/>";
-echo "Comparando " . $profe1->getIdade() . " y baile \$salsa... resultado: <br/>";
-//  try{
+try {
+    echo "Comparando " . $profe1->getIdade() . " y " . $profe2->getIdade() . "... resultado: " . $profe1->comparar($profe2) . "<br/>";
+    echo "Comparando " . $profe2->getIdade() . " y " . $profe1->getIdade() . "... resultado: " . $profe2->comparar($profe1) . "<br/>";
+    echo "Comparando " . $profe1->getIdade() . " y baile \$salsa... resultado: <br/>";
 
-$profe1->comparar($salsa);
-
-//} catch(\exceptions\NotProfesorException $npe){
-//    echo "Se ha producido una excepción:  ". $npe->getMessage() . "<br/>".  $npe->getTraceAsString() . " <br/>";
-//}
+    $profe1->comparar($salsa);
+} catch (\exceptions\NotProfesorException $npe) {
+    echo "Se ha producido una excepción:  " . $npe->getMessage() . "<br/>" . $npe->getTraceAsString() . " <br/>";
+}
 

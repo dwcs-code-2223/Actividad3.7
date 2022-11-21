@@ -19,7 +19,6 @@ final class Profesor extends Persoa implements IComparar {
     private $NIF;
     private $bailes = [];
     private $idade;
-    
 
     public function __construct(string $nome,
             string $apelidos,
@@ -84,21 +83,26 @@ final class Profesor extends Persoa implements IComparar {
         }
     }
 
-    public function comparar($otro) {
+    public function comparar($otro): int {
         if (!($otro instanceof Profesor)) {
+            //otras opciones
+            // if(!is_a($otro, __CLASS__)){
+            //if(get_class($otro)!==Profesor::class){
 
-            throw new NotProfesorException(get_class($otro), "No se puede comparar un objeto de la clase ". get_class($this) . " con otra clase.");
-        }
-        else{
-            return $this->idade <=> $otro-> idade;
+
+            throw new
+                    NotProfesorException(get_class($otro),
+                            "No se puede comparar un objeto de la clase " . get_class($this) . " con otra clase.");
+        } else {
+            return $this->idade <=> $otro->idade;
         }
     }
-    
+
     public function verInformacion() {
         parent::verInformacion();
         echo ", Idade: $this->idade<br/>";
     }
-    
+
     public function getIdade() {
         return $this->idade;
     }
@@ -107,6 +111,4 @@ final class Profesor extends Persoa implements IComparar {
         $this->idade = $idade;
     }
 
-
 }
-    

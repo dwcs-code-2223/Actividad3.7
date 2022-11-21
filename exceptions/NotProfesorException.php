@@ -12,11 +12,11 @@ namespace exceptions;
  *
  * @author maria
  */
-class NotProfesorException extends \Exception {
+class NotProfesorException extends \Exception{
 
     private $otroClass;
 
-    public function __construct(string $otroClass, string $message) {
+    public function __construct(  string $otroClass, string $message,) {
         parent::__construct($message);
         $this->otroClass = $otroClass;
         $this->message = $message . " La clase encontrada es: " . $this->otroClass;

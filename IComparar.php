@@ -6,5 +6,5 @@
  */
 
 interface IComparar{
-   public function comparar($otro);
+   public function comparar($otro):int ;
 }
